@@ -9,8 +9,9 @@ if(isset($_POST['save']))
     $precio = $MySQLiconn->real_escape_string($_POST['precio']);
     $descripcion = $MySQLiconn->real_escape_string($_POST['descripcion']);
     $idpais = $MySQLiconn->real_escape_string($_POST['idpais']);
+    $idpais2 = $MySQLiconn->real_escape_string($_POST['idpais2']);
 
-    $SQL = $MySQLiconn->query("INSERT INTO productos(nombre,tipo,precio,descripcion,idpais)VALUES('$nombre','$tipo','$precio','$descripcion','$idpais')");
+    $SQL = $MySQLiconn->query("INSERT INTO productos(nombre,tipo,precio,descripcion,idpais,idpais2)VALUES('$nombre','$tipo','$precio','$descripcion','$idpais','$idpais2')");
 
 
 
@@ -42,9 +43,8 @@ if(isset($_GET['edit']))
 
 if(isset($_POST['update']))
 {
-    $SQL = $MySQLiconn->query("UPDATE productos SET nombre='".$_POST['nombre']."', tipo='".$_POST['tipo']."', precio='".$_POST['precio']."', descripcion='".$_POST['descripcion']."', idpais='".$_POST['idpais']."' WHERE id=".$_GET['edit']);
+    $SQL = $MySQLiconn->query("UPDATE productos SET nombre='".$_POST['nombre']."', tipo='".$_POST['tipo']."', precio='".$_POST['precio']."', descripcion='".$_POST['descripcion']."', idpais='".$_POST['idpais']."', idpais2='".$_POST['idpais2']."' WHERE id=".$_GET['edit']);
     header("Location: index.php");
 }
 /*codigo para el update*/
-
 ?>
